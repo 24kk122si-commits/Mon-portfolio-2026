@@ -289,21 +289,41 @@ footer a:hover {
     margin-right: 5px;
 }
 
-/* LINKS */
 .links {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid #e5e5e5;
 }
-
+/* LIENS */
 .links a {
     text-decoration: none;
-    color: #333;
+    color: #444;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.3s;
 }
 
+/* ICÔNES */
+.links a i {
+    font-size: 16px;
+}
+
+/* HOVER */
 .links a:hover {
     color: #6c63ff;
+    transform: translateY(-2px);
+}
+
+/* SEPARATEUR */
+.divider {
+    width: 1px;
+    height: 15px;
+    background: #ccc;
 }
 
 
