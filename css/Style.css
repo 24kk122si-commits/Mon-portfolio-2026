@@ -392,3 +392,245 @@ footer a:hover {
 @media (max-width: 768px) {
     .contact-wrapper { grid-template-columns: 1fr; }
 }
+
+
+
+
+
+/* ===============================
+   Cartes AI avec rotation images
+=============================== */
+.ai-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.ai-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ai-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.ai-images {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 4px solid var(--violet-doux);
+    border-radius: 15px 15px 0 0;
+}
+
+.ai-images img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.ai-card h2 {
+    color: var(--violet-doux);
+    font-size: 1.5rem;
+    margin: 15px 20px 10px 20px;
+}
+
+.ai-card p {
+    font-size: 1rem;
+    color: var(--gris-fonce);
+    margin: 0 20px 20px 20px;
+}
+
+/* ===============================
+   Script rotation images
+=============================== */
+
+
+
+/* ======= PASSIONS.CSS ======= */
+
+/* Conteneur principal */
+.passion {
+    padding: 50px 80px;
+    text-align: center;
+}
+
+.passion h1 {
+    font-size: 2.8rem;
+    color: var(--violet-doux);
+    margin-bottom: 40px;
+}
+
+/* Conteneur des cartes AI */
+.ai-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Carte individuelle */
+.ai-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.ai-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Conteneur d'images */
+.ai-images {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.ai-images img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+/* Titre et description de la carte */
+.ai-card h2 {
+    font-size: 1.6rem;
+    color: var(--violet-doux);
+    margin: 15px 0 10px 0;
+}
+
+.ai-card p {
+    font-size: 1rem;
+    color: var(--gris-fonce);
+    padding: 0 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .passion {
+        padding: 30px 20px;
+    }
+    .ai-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.entertainment-dynamic {
+    padding: 60px 50px;
+    background: linear-gradient(135deg, #f0f0ff, #ffffff);
+    text-align: center;
+    overflow: hidden;
+}
+
+.entertainment-dynamic h1 {
+    font-size: 3rem;
+    color: var(--violet-doux);
+    margin-bottom: 10px;
+}
+
+.entertainment-dynamic .underline {
+    width: 80px;
+    height: 4px;
+    background: var(--violet-doux);
+    margin: 0 auto 40px;
+    border-radius: 2px;
+}
+
+.mosaic-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-auto-rows: 180px;
+    gap: 20px;
+    perspective: 1000px;
+}
+
+.mosaic-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    cursor: pointer;
+}
+
+.mosaic-item::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-weight: bold;
+    color: white;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+}
+
+.mosaic-item:hover {
+    transform: rotateY(10deg) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* Images de fond pour chaque section */
+.mosaic-item.art { background-image: url('images/art1.jpeg'); }
+.mosaic-item.music { background-image: url('images/musique1.jpeg'); }
+.mosaic-item.archi { background-image: url('images/archi1.jpeg'); }
+.mosaic-item.travel { background-image: url('images/photo1.jpeg'); }
+.mosaic-item.books { background-image: url('images/livre1.jpeg'); }
+.mosaic-item.food { background-image: url('images/cuisine1.jpeg'); }
+.mosaic-item.science { background-image: url('images/science1.jpeg'); }
+.mosaic-item.mindfulness { background-image: url('images/mind1.jpeg'); }
+
+/* Animation flottante aléatoire */
+.mosaic-item {
+    animation: floatMosaic 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatMosaic {
+    0% { transform: translateY(0px) rotateZ(0deg); }
+    50% { transform: translateY(-10px) rotateZ(1deg); }
+    100% { transform: translateY(0px) rotateZ(0deg); }
+}
+
+@media (max-width: 768px) {
+    .mosaic-container {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        grid-auto-rows: 140px;
+        gap: 15px;
+    }
+}
+
+
+
+
+
+
+
+/* Nouvelles images de fond pour les nouvelles sections */
+.mosaic-item.cinema { background-image: url('images/cinema1.jpeg'); }
+.mosaic-item.theatre { background-image: url('images/theatre1.jpeg'); }
+.mosaic-item.tech { background-image: url('images/tech1.jpeg'); }
+.mosaic-item.nature { background-image: url('images/nature1.jpeg'); }
+
+/* Garde les mêmes animations et effets au survol */
